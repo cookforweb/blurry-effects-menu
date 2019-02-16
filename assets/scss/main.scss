@@ -1,0 +1,265 @@
+@import "../../node_modules/bourbon/core/bourbon";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "variables";
+
+@import "https://fonts.googleapis.com/css?family=Cabin:400,500,600,700|Nunito:200,600|Exo+2:500,600,700,800,900";
+
+@import "generic";
+
+
+@mixin filter-blur($value){
+  -webkit-filter: blur($value); /* Safari 6.0 - 9.0 */
+  filter: blur($value);
+}
+
+
+.menu-mykonos{
+  font-size: 1.2em;
+  > ul.main-menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    > li.menu-item{
+      > .menu-link{
+        color: #ffffff;
+        display: block;
+        padding: 1rem;
+        margin: 0 1rem;
+        position: relative;
+        > span{
+          position: relative;
+          z-index: 999;
+        }
+        &:after, &:before{
+          content: '';
+          display: block;
+          @include transition(filter 0.5s, transform 0.5s, opacity 0.1s 0.4s);
+        }
+        &:before{
+          @include position(absolute, 0 0 0 0);
+          border: 1px solid rgba(255, 255, 255, 0.75);
+          @include filter-blur(1rem);
+          transform: scale(1.25);
+          opacity: 0;
+        }
+        &:after{
+          @include position(absolute, 4px);
+          border: 1px solid rgba(255, 255, 255, 0.85);
+          @include filter-blur(1rem);
+          transform: scale(0.75);
+          opacity: 0;
+        }
+        &:hover{
+          text-decoration: none;
+          &:before, &:after{
+            @include transition(filter 0.5s, transform 0.5s, opacity 0.1s);
+            @include filter-blur(0rem);
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-santorini{
+  font-size: 1.2em;
+  > ul.main-menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    > li.menu-item{
+      > .menu-link{
+        color: #ffffff;
+        display: block;
+        padding: 1rem;
+        margin: 0 1rem;
+        position: relative;
+        > span{
+          position: relative;
+          z-index: 999;
+        }
+        &:after, &:before{
+          content: '';
+          display: block;
+          @include transition(filter 0.5s, transform 0.5s, opacity 0.1s 0.4s);
+        }
+        &:before{
+          @include position(absolute, 0 0 0 0);
+          border-top: 2px solid rgba(255, 255, 255, 0.85);
+          @include filter-blur(1rem);
+          transform: translateY(-1rem);
+          opacity: 0;
+        }
+        &:after{
+          @include position(absolute, 0 0 0 0);
+          border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+          @include filter-blur(1rem);
+          transform: translateY(1rem);
+          opacity: 0;
+        }
+        &:hover{
+          text-decoration: none;
+          &:before, &:after{
+            @include transition(filter 0.5s, transform 0.5s, opacity 0.1s);
+            @include filter-blur(0rem);
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-crete{
+  font-size: 1.2em;
+  > ul.main-menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    > li.menu-item{
+      > .menu-link{
+        color: #ffffff;
+        display: block;
+        padding: 1rem;
+        margin: 0 1rem;
+        position: relative;
+        > span{
+          position: relative;
+          z-index: 999;
+        }
+        &:after, &:before{
+          content: '';
+          display: block;
+        }
+        &:before{
+          @include position(absolute, 0 0 4px 0);
+          border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+          @include filter-blur(1rem);
+          transform: translateY(1rem);
+          opacity: 0;
+          @include transition(filter 0.5s, transform 0.5s, opacity 0.1s 0.4s);
+        }
+        &:after{
+          @include position(absolute, 0 0 0 0);
+          border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+          transform: translateY(1rem);
+          @include filter-blur(1rem);
+          opacity: 0;
+          @include transition(filter 0.5s, transform 0.5s, opacity 0.1s 0.4s);
+        }
+        &:hover{
+          text-decoration: none;
+          &:before, &:after{
+            @include filter-blur(0rem);
+            transform: translateY(0);
+            opacity: 1;
+          }
+          &:before{
+            @include transition(filter 0.5s, transform 0.5s, opacity 0.1s);
+          }
+          &:after{
+            @include transition(filter 0.5s 0.1s, transform 0.5s 0.1s, opacity 0.1s);
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-rodhes{
+  font-size: 1.2em;
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    .menu-item{
+      .menu-link{
+        color: #ffffff;
+        padding: 0 1rem;
+        margin: 0 1rem;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  > ul.main-menu{
+    display: flex;
+    justify-content: center;
+    > li.menu-item{
+      > .menu-link{
+        color: #ffffff;
+        display: block;
+        position: relative;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        > span{
+          position: relative;
+          z-index: 999;
+        }
+        &:after, &:before{
+          content: '';
+          display: block;
+          @include filter-blur(1rem);
+          @include position(absolute, 0 0 0 0);
+        }
+        &:before{
+        }
+        &:after{
+        }
+        // Hover
+        &:hover{
+          &:before, &:after{
+          }
+        }
+      }
+      &.has-submenu{
+        position: relative;
+        > .menu-submenu{
+          position: absolute;
+          top: 0rem;
+          padding-top: 4rem;
+          > .menu-item{
+            opacity: 0;
+            visibility: hidden;
+            @include filter-blur(1rem);
+          }
+          &:before{
+            content: '';
+            display: block;
+            @include position(absolute, 1rem null null 1rem);
+            bottom: 100%;
+            border-left: 2px solid rgba(255, 255, 255, 0.9);
+          }
+        }
+      }
+      &:hover{
+        &.has-submenu{
+          > .menu-submenu{
+            > .menu-item{
+              opacity: 1;
+              visibility: visible;
+              @include filter-blur(0rem);
+              @include transition(opacity 0.4s 0.1s, visibility 0.4s 0.1s, filter 0.4s 0.1s);
+            }
+            &:before{
+              @include transition(bottom 0.4s);
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
