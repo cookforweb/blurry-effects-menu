@@ -187,6 +187,10 @@
         color: #ffffff;
         padding: 0 1rem;
         margin: 0 1rem;
+        display: block;
+        span{
+          white-space: nowrap;
+        }
         &:hover{
           text-decoration: none;
         }
@@ -199,13 +203,13 @@
     > li.menu-item{
       > .menu-link{
         color: #ffffff;
-        display: block;
         position: relative;
         padding-top: 1rem;
         padding-bottom: 1rem;
         > span{
           position: relative;
           z-index: 999;
+          white-space: nowrap;
         }
         &:after, &:before{
           content: '';
@@ -229,6 +233,7 @@
           position: absolute;
           top: 0rem;
           padding-top: 4rem;
+          visibility: hidden;
           > .menu-item{
             opacity: 0;
             visibility: hidden;
@@ -246,11 +251,21 @@
       &:hover{
         &.has-submenu{
           > .menu-submenu{
+            visibility: visible;
             > .menu-item{
               opacity: 1;
               visibility: visible;
               @include filter-blur(0rem);
               @include transition(opacity 0.4s 0.1s, visibility 0.4s 0.1s, filter 0.4s 0.1s);
+              @for $i from 1 through 10{
+                &:nth-child(#{$i}){
+                  -webkit-transition-delay: $i * 50ms;
+                  -moz-transition-delay: $i * 50ms;
+                  -ms-transition-delay: $i * 50ms;
+                  -o-transition-delay: $i * 50ms;
+                  transition-delay: $i * 50ms;
+                }
+              }
             }
             &:before{
               @include transition(bottom 0.4s);
