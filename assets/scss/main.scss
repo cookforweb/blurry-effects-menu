@@ -238,6 +238,14 @@
             opacity: 0;
             visibility: hidden;
             @include filter-blur(1rem);
+            > .menu-link{
+              @include transition(transform 250ms);
+              transform: translateX(0rem);
+              &:hover{
+                transform: translateX(.25rem);
+              }
+
+            }
           }
           &:before{
             content: '';
